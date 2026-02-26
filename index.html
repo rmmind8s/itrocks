@@ -55,8 +55,6 @@ header {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-.header-content h1 { color: var(--theme-white); font-size: 2.5rem; margin: 1.5rem 0; }
-
 main {
     flex: 1; max-width: 800px; margin: 0 auto; text-align: center;
 }
@@ -79,15 +77,19 @@ footer a { color: #555; font-weight: 600; }
 .contact-name {
     color: var(--theme-white);
     font-size: 2.5rem;
-    margin-top: 1.5rem;
     font-weight: 700;
 }
 
 .contact-role {
     color: #cccccc;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 1.5rem;
+}
+    
+.sr-only {
+    position: absolute;
+    left: -9999px;
 }
     
 </style>
@@ -100,7 +102,7 @@ footer a { color: #555; font-weight: 600; }
   </div>
     <div class="header-content">
       <h2 class="contact-name">IT ROCKS</h2>
-      <h1 class="contact-role">Budintis IT specialistas</h1>
+      <h1 class="contact-role">Budintis <span class="sr-only">IT </span>specialistas</h1>
     </div>
 </header>
 
@@ -123,7 +125,7 @@ footer a { color: #555; font-weight: 600; }
 </main>
 
 <footer>
-  Budintis IT specialistas: <a href="https://facebook.com/mrusslys" rel="nofollow noopener" target="_blank">Mindaugas</a>
+  Šiuo metu budi: <a href="https://facebook.com/mrusslys" rel="nofollow noopener" target="_blank">Mindaugas</a>
 </footer>
 </body>
 </html>
