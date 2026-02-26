@@ -103,7 +103,7 @@ footer a { color: #555; font-weight: 600; }
 
 .call-vibrate {
   display: inline-block;
-  animation: none;
+  animation: vibrate 1s ease-in-out;
 }
     
 </style>
@@ -142,20 +142,25 @@ footer a { color: #555; font-weight: 600; }
   Prie pulto: <a href="https://facebook.com/mrusslys" rel="nofollow noopener" target="_blank">Mindaugas</a>
 </footer>
 
-    <script id="vibra-js">
-        const callBtn = document.querySelector('#tel a');
-        
-        function triggerVibrate() {
-            callBtn.classList.add('call-vibrate');
-            // sustabdyti po 1s (vienas „vibruojantis skambutis“)
-            setTimeout(() => {
-                callBtn.classList.remove('call-vibrate');
-            }, 1000);
-        }
-        
-        // kas 5 sekundes paleidžiame vibraciją
-        setInterval(triggerVibrate, 5000);
-    </script>
+<script>
+  const callBtn = document.querySelector('#tel a');
+
+  function triggerVibrate() {
+      // prideda klasę → animacija vyksta
+      callBtn.classList.add('call-vibrate');
+
+      // po 1s pašalina klasę, kad galėtų vėl vibruoti kitą kartą
+      setTimeout(() => {
+          callBtn.classList.remove('call-vibrate');
+      }, 1000);
+  }
+
+  // paleidžiame pirmą kartą po 3s, tada kas 5s
+  setTimeout(() => {
+      triggerVibrate();
+      setInterval(triggerVibrate, 5000);
+  }, 3000);
+</script>
     
 </body>
 </html>
