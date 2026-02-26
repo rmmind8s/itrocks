@@ -88,26 +88,27 @@ footer a { color: #555; font-weight: 600; }
 }
 
 @keyframes vibrate-cycle {
-  0%, 81% { transform: translate(0,0) rotate(0deg); }
-  
+  0%, 81% { transform: translate(0,0) rotate(0deg); }  /* tyla ~5.67s */
+
+  /* vibracijos burst: 1s proporcingai likusiai animacijos daliai */
   82% { transform: translate(-5px,2px) rotate(-2deg); }
   83% { transform: translate(5px,-2px) rotate(2deg); }
   84% { transform: translate(-4px,1px) rotate(-1deg); }
   85% { transform: translate(4px,-1px) rotate(1deg); }
-  85% { transform: translate(-3px,1px) rotate(-1deg); }
+  86% { transform: translate(-3px,1px) rotate(-1deg); }
   87% { transform: translate(3px,-1px) rotate(1deg); }
-  89% { transform: translate(-2px,1px) rotate(-1deg); }
-  90% { transform: translate(2px,-1px) rotate(1deg); }
-  91% { transform: translate(-1px,0) rotate(0deg); }
-  92%   { transform: translate(1px,0) rotate(0deg); }
-  93% { transform: translate(0,1px) rotate(0deg); }
+  88% { transform: translate(-2px,1px) rotate(-1deg); }
+  89% { transform: translate(2px,-1px) rotate(1deg); }
+  90% { transform: translate(-1px,0) rotate(0deg); }
+  91% { transform: translate(1px,0) rotate(0deg); }
+  92% { transform: translate(0,1px) rotate(0deg); }
 
-  94%, 100% { transform: translate(0,0) rotate(0deg); }
+  93%, 100% { transform: translate(0,0) rotate(0deg); } /* likusi tyla */
 }
 
 #tel a {
   display: inline-block;
-  animation: vibrate-cycle 5s linear infinite;
+  animation: vibrate-cycle 7s linear infinite;
 }
     
 </style>
