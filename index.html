@@ -87,23 +87,23 @@ footer a { color: #555; font-weight: 600; }
     margin-bottom: 1.5rem;
 }
 
-@keyframes vibrate {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  10%  { transform: translate(-4px, 2px) rotate(-1deg); }
-  20%  { transform: translate(4px, -2px) rotate(1deg); }
-  30%  { transform: translate(-3px, 1px) rotate(-1deg); }
-  40%  { transform: translate(3px, -1px) rotate(1deg); }
-  50%  { transform: translate(-2px, 1px) rotate(-1deg); }
-  60%  { transform: translate(2px, -1px) rotate(1deg); }
-  70%  { transform: translate(-1px, 0px) rotate(0deg); }
-  80%  { transform: translate(1px, 0px) rotate(0deg); }
-  90%  { transform: translate(0px, 1px) rotate(0deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+@keyframes vibrate-cycle {
+  0%, 50% { transform: translate(0,0) rotate(0deg); }      /* 0–50% = tyla */
+  51% { transform: translate(-4px,2px) rotate(-1deg); }   /* vibracija startuoja */
+  53% { transform: translate(4px,-2px) rotate(1deg); }
+  55% { transform: translate(-3px,1px) rotate(-1deg); }
+  57% { transform: translate(3px,-1px) rotate(1deg); }
+  59% { transform: translate(-2px,1px) rotate(-1deg); }
+  61% { transform: translate(2px,-1px) rotate(1deg); }
+  63% { transform: translate(-1px,0) rotate(0deg); }
+  65% { transform: translate(1px,0) rotate(0deg); }
+  67% { transform: translate(0,1px) rotate(0deg); }       /* vibracija baigta */
+  68%, 100% { transform: translate(0,0) rotate(0deg); }   /* 5 s tyla */
 }
 
-.call-vibrate {
+#tel a {
   display: inline-block;
-  animation: vibrate 1s ease-in-out;
+  animation: vibrate-cycle 7s linear infinite;
 }
     
 </style>
@@ -126,7 +126,7 @@ footer a { color: #555; font-weight: 600; }
   </div>
   <ul>
     <li id="tel">
-      <a href="tel:+37061600055" aria-label="Skambinti telefonu" class="call-vibrate">
+      <a href="tel:+37061600055" aria-label="Skambinti telefonu">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><defs><linearGradient id="coolGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2bb7a8" style="stop-color: rgb(80 208 112);"></stop><stop offset="100%" stop-color="#4b3f72" style="stop-color: rgb(0 117 115);"></stop></linearGradient></defs><path d="M384 32c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0zm-90.7 96.7c-9.7-2.6-19.9 2.3-23.7 11.6l-20 48c-3.4 8.2-1 17.6 5.8 23.2L280 231.7c-16.6 35.2-45.1 63.7-80.3 80.3l-20.2-24.7c-5.6-6.8-15-9.2-23.2-5.8l-48 20c-9.3 3.9-14.2 14-11.6 23.7l12 44C111.1 378 119 384 128 384c123.7 0 224-100.3 224-224c0-9-6-16.9-14.7-19.3l-44-12z" fill="url(#coolGradient)"></path></svg>
       </a>
     </li>
@@ -141,26 +141,6 @@ footer a { color: #555; font-weight: 600; }
 <footer>
   Šiuo metu prie pulto budi: <a href="https://facebook.com/mrusslys" rel="nofollow noopener" target="_blank">Mindaugas</a>
 </footer>
-
-<script>
-  const callBtn = document.querySelector('#tel a');
-
-  function triggerVibrate() {
-      // prideda klasę → animacija vyksta
-      callBtn.classList.add('call-vibrate');
-
-      // po 1s pašalina klasę, kad galėtų vėl vibruoti kitą kartą
-      setTimeout(() => {
-          callBtn.classList.remove('call-vibrate');
-      }, 1000);
-  }
-
-  // paleidžiame pirmą kartą po 3s, tada kas 5s
-  setTimeout(() => {
-      triggerVibrate();
-      setInterval(triggerVibrate, 3000);
-  }, 5000);
-</script>
     
 </body>
 </html>
