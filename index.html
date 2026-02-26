@@ -59,12 +59,23 @@ main {
     flex: 1; max-width: 800px; margin: 0 auto; text-align: center;
 }
 
-.phone { font-size: 2rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 1.5rem 0; }
-.phone a { color: #2d2d2d; font-weight: 700; text-decoration: none; }
+.phoneNum { font-size: 2rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 1.5rem 0; }
+.phoneNum a { color: #2d2d2d; font-weight: 700; text-decoration: none; }
 
-ul { list-style: none; margin-bottom: 0; }
-li { margin: 0.5rem 0; font-size: 2rem; }
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+ul li {
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+    
 a { text-decoration: none; color: inherit; }
 a:hover { text-decoration: underline; }
 
@@ -72,7 +83,6 @@ footer { text-align: center; font-size: 0.9rem; padding: 1rem; }
 footer a { color: #555; font-weight: 600; }
 
 .app svg { width: 2rem; }
-#tel svg { width: 4rem;}
 
 .contact-name {
     color: var(--theme-white);
@@ -117,19 +127,6 @@ footer a { color: #555; font-weight: 600; }
     height: 4rem; /* pridėk aukštį */
     display: block; /* svg užpildo a */
 }
-
-ul {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  display: inline-block;
-}
     
 </style>
 </head>
@@ -146,7 +143,7 @@ ul li {
 </header>
 
 <main>
-  <div class="phone">
+  <div id="phoneNum">
     <a href="tel:+37061600055">+37061600055</a>
   </div>
 
