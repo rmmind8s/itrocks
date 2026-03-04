@@ -78,13 +78,21 @@ a { text-decoration: none; color: inherit; }
 a:hover { text-decoration: underline; }
 
 footer { text-align: center; font-size: 0.9rem; padding: 1rem; }
-footer a { color: #555; }
-footer svg { width: 0.9rem; height: 0.9rem; }
 footer p {
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
     gap: 0.4rem;
+    color: #555;
+}
+
+footer svg {
+    width: 0.9rem;
+    height: 0.9rem;
 }
 
 .app svg { width: 2rem; height: 2rem;}
