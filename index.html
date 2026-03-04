@@ -24,10 +24,7 @@
 <style>
 :root {
     --theme-white: #fff;
-    --theme-black: #121212;
-    --theme-green: #00ca59;
     --theme-gray: #333;
-    --theme-yellow: #d9c099;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,11 +58,6 @@ main {
 
 #phoneNum { font-size: 2rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin: 1.5rem 0; }
 #phoneNum a { color: #2d2d2d; font-weight: 700; text-decoration: none; }
-
-#description ul {
-    padding: 1rem;
-    padding-right: 0;
-}
     
 #apps {
   display: flex;
@@ -87,6 +79,7 @@ a:hover { text-decoration: underline; }
 
 footer { text-align: center; font-size: 0.9rem; padding: 1rem; }
 footer a { color: #555; font-weight: 600; }
+footer a  svg { width: 0.9rem; heigth: 0.9rem; }
 
 .app svg { width: 2rem; height: 2rem;}
 
@@ -187,6 +180,10 @@ footer a { color: #555; font-weight: 600; }
     height: 1.7rem;
     opacity: 0.7;
 }
+
+#description p {
+    text-align: center;
+}
     
 </style>
 </head>
@@ -204,7 +201,7 @@ footer a { color: #555; font-weight: 600; }
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#777777" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></svg>
                 </button>
         
-                <p></p>Sprendžiu kompiuterių ir programų problemas, paruošiu įrangą, pritaikau sistemas patogiam ir efektyviam darbui, apmokau.</p>
+                <p>Sprendžiu kompiuterių ir programų problemas, paruošiu įrangą, pritaikau sistemas patogiam ir efektyviam darbui, apmokau.</p>
             </div>
         </div>
     
@@ -255,7 +252,7 @@ footer a { color: #555; font-weight: 600; }
 </main>
 
 <footer>
-  <p><a href="https://www.facebook.com/itrocks247/posts/pfbid0h5c9dngTjrfyoyBAJCnZPEZvbYxnkKkmFLz4nTdGK33qkx2BRijd8BLHPkrbVip5l " rel="nofollow noopener" target="_blank">Mindaugas</a> 👨‍🚀</p>
+  <p><a href="https://www.facebook.com/itrocks247/posts/pfbid0h5c9dngTjrfyoyBAJCnZPEZvbYxnkKkmFLz4nTdGK33qkx2BRijd8BLHPkrbVip5l " rel="nofollow noopener" target="_blank">Mindaugas</a> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#555555" d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l98.2 0 0-145.8-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 145.8 129 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32z"/></svg></p>
 </footer>
 <script>
     const modal = document.getElementById("description");
