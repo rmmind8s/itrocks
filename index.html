@@ -167,11 +167,26 @@ body::before {
   border-color: var(--border);
 }
 
+.hero-desc--primary {
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.hero-desc--primary:hover {
+  border-color: var(--text-secondary);
+}
+
 .hero-desc svg {
   width: 12px;
   height: 12px;
   opacity: 0.5;
   flex-shrink: 0;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 /* ── CONTACT CARD ── */
@@ -443,12 +458,20 @@ body::before {
     <div class="divider"></div>
     <p class="hero-label">IT specialistas · Klaipėda</p>
     <h1 class="hero-title">Jūsų technologijos<br /><em>gali daugiau.</em></h1>
-    <p class="hero-desc" onclick="toggleModal()" role="button" tabindex="0" aria-expanded="false" id="descTrigger">
-      Paslaugų aprašymas
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </p>
+    <div class="hero-buttons">
+      <p class="hero-desc" onclick="toggleModal()" role="button" tabindex="0" aria-expanded="false" id="descTrigger">
+        Paslaugų aprašymas
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </p>
+      <p class="hero-desc hero-desc--primary" onclick="toggleOfferModal()" role="button" tabindex="0" aria-expanded="false" id="offerTrigger">
+        Pasiūlymai
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </p>
+    </div>
     <div class="divider"></div>
   </section>
 
@@ -531,25 +554,57 @@ body::before {
   </div>
 </div>
 
+<div class="modal-overlay" id="offerModal" role="dialog" aria-modal="true" onclick="outsideClickOffer(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="toggleOfferModal()" aria-label="Uždaryti">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M2 2l12 12M14 2L2 14"/>
+      </svg>
+    </button>
+    <p class="modal-title">Pasiūlymai</p>
+    <p class="modal-text">
+      Pasiūlymai bus paskelbti netrukus.
+    </p>
+  </div>
+</div>
+
 <script>
 const modal = document.getElementById('modal');
 const trigger = document.getElementById('descTrigger');
+const offerModal = document.getElementById('offerModal');
+const offerTrigger = document.getElementById('offerTrigger');
 
 function toggleModal() {
   const isOpen = modal.classList.toggle('show');
   trigger.setAttribute('aria-expanded', isOpen);
 }
 
+function toggleOfferModal() {
+  const isOpen = offerModal.classList.toggle('show');
+  offerTrigger.setAttribute('aria-expanded', isOpen);
+}
+
 function outsideClick(e) {
   if (e.target === modal) toggleModal();
 }
 
+function outsideClickOffer(e) {
+  if (e.target === offerModal) toggleOfferModal();
+}
+
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && modal.classList.contains('show')) toggleModal();
+  if (e.key === 'Escape') {
+    if (modal.classList.contains('show')) toggleModal();
+    if (offerModal.classList.contains('show')) toggleOfferModal();
+  }
 });
 
 trigger.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleModal(); }
+});
+
+offerTrigger.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleOfferModal(); }
 });
 </script>
 </body>
