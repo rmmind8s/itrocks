@@ -77,12 +77,13 @@ html, body {
 .logo-mark {
   width: 36px;
   height: 36px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
+  border: none;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--surface);
+  overflow: hidden;
 }
 
 .logo-mark svg {
@@ -418,8 +419,8 @@ html, body {
 
 /* ── THEME TOGGLE ── */
 .theme-toggle {
-  background: #f0f0f0;
-  border: 1px solid #f0f0f0;
+  background: none;
+  border: 1px solid var(--border);
   border-radius: 6px;
   width: 28px;
   height: 28px;
@@ -427,28 +428,23 @@ html, body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #111;
-  transition: opacity 0.2s;
+  color: var(--text-muted);
+  transition: color 0.2s, border-color 0.2s;
   flex-shrink: 0;
 }
 
-.theme-toggle:hover { opacity: 0.8; }
+.theme-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
 
 .theme-toggle svg { width: 14px; height: 14px; }
 
-/* dark mode → balta su saule */
-.icon-sun { display: block; }
-.icon-moon { display: none; }
+.icon-sun { display: none; }
+.icon-moon { display: block; }
 
-/* light mode → juoda su menuliu */
-[data-theme="light"] .theme-toggle {
-  background: #111;
-  border-color: #111;
-  color: #f0f0f0;
-}
-
-[data-theme="light"] .icon-sun { display: none; }
-[data-theme="light"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun { display: block; }
+[data-theme="light"] .icon-moon { display: none; }
 
 /* ── LIGHT MODE ── */
 [data-theme="light"] {
@@ -461,6 +457,8 @@ html, body {
   --accent-dim: rgba(0, 0, 0, 0.04);
 }
 
+
+[data-theme="light"] .logo-mark img { content: url('irocks-logo-w.webp'); }
 
 [data-theme="light"] .modal-overlay {
   background: rgba(0,0,0,0.4);
@@ -480,7 +478,7 @@ html, body {
   <header class="header">
     <div class="logo-row">
       <div class="logo-mark">
-        <img src="itrocks-logo-small.png" alt="itrocks.lt" width="36" height="36">
+        <img src="irocks-logo.webp" alt="itrocks.lt" width="36" height="36">
       </div>
       <span class="logo-text">itrocks.lt</span>
       <button class="theme-toggle" id="themeToggle" aria-label="Perjungti temą">
